@@ -173,3 +173,25 @@ button:disabled {
     min-width: 80px;
     text-align: center;
 }
+
+#credits {
+    position: fixed;      /* Keep it fixed relative to the viewport */
+    bottom: 10px;         /* Distance from the bottom */
+    left: 15px;           /* Distance from the left */
+    font-size: 0.8em;     /* Make the text small (adjust as needed) */
+    color: #555;          /* Subtle text color (e.g., dark grey) */
+    z-index: 1000;        /* Ensure it stays on top if needed */
+}
+
+/* Style the link within the credits */
+#credits a {
+    color: inherit;        /* Inherit the color from the #credits rule */
+    text-decoration: none; /* Remove the default underline */
+    transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+/* Style the link on hover */
+#credits a:hover {
+    color: #0056b3;        /* Change color on hover (e.g., darker blue) */
+    text-decoration: underline; /* Add underline on hover */
+}
