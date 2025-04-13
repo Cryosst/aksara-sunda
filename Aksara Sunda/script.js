@@ -64,24 +64,24 @@ const originalFlashcards = [
 
 // --- DOM Elements ---
 const cardElement = document.getElementById('card');
+// *** Get references to the new faces ***
+const frontFaceElement = cardElement.querySelector('.card-front-face');
+const backFaceElement = cardElement.querySelector('.card-back-face');
+// *** End reference changes ***
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const flipBtn = document.getElementById('flip-btn');
 const cardCounterElement = document.getElementById('card-counter');
-const toggleOrderBtn = document.getElementById('toggle-order-btn'); // Get the new button
+const toggleOrderBtn = document.getElementById('toggle-order-btn');
 
 // --- State Variables ---
 let currentCardIndex = 0;
-let isFront = true; // True if showing front, false if showing back
-let isRandomized = false; // Track the order mode
-let displayedFlashcards = []; // This will hold the cards currently being used
+// let isFront = true; // We don't strictly need this for the flip logic anymore
+let isRandomized = false;
+let displayedFlashcards = [];
 
 // --- Functions ---
 
-/**
- * Shuffles array in place using the Fisher-Yates (Knuth) algorithm.
- * @param {Array} array The array to shuffle.
- */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -89,96 +89,95 @@ function shuffleArray(array) {
     }
 }
 
-/**
- * Sets the displayedFlashcards array based on the current mode (ordered or random).
- */
 function setDisplayedCards() {
     if (isRandomized) {
-        // Create a shuffled copy of the original cards
-        displayedFlashcards = [...originalFlashcards]; // Use spread syntax for a shallow copy
+        displayedFlashcards = [...originalFlashcards];
         shuffleArray(displayedFlashcards);
     } else {
-        // Use a direct copy of the original ordered cards
         displayedFlashcards = [...originalFlashcards];
     }
-    // Reset index whenever the deck changes
     currentCardIndex = 0;
-    isFront = true; // Show front of the first card
+    // isFront = true; // Reset concept
 }
 
-
 function updateCardDisplay() {
-    // Make sure we have cards to display
-    if (!displayedFlashcards || displayedFlashcards.length === 0) {
-        cardElement.innerHTML = 'Loading or Error...';
+    if (!displayedFlashcards || displayedFlashcards.length === 0 || !frontFaceElement || !backFaceElement) {
+        // Handle error or loading state appropriately for both faces
+        if (frontFaceElement) frontFaceElement.innerHTML = 'Error';
+        if (backFaceElement) backFaceElement.innerHTML = 'Error';
         cardCounterElement.textContent = `Card 0 / 0`;
         prevBtn.disabled = true;
         nextBtn.disabled = true;
         flipBtn.disabled = true;
-        toggleOrderBtn.disabled = true; // Disable toggle if no cards
+        toggleOrderBtn.disabled = true;
         return;
     }
 
-    // Ensure index is within bounds (can happen if deck changes size, though not here)
     if (currentCardIndex < 0) currentCardIndex = 0;
     if (currentCardIndex >= displayedFlashcards.length) currentCardIndex = displayedFlashcards.length - 1;
 
     const card = displayedFlashcards[currentCardIndex];
 
-    if (isFront) {
-        cardElement.innerHTML = card.front;
-        cardElement.classList.remove('card-back');
-        cardElement.classList.add('card-front');
-    } else {
-        cardElement.innerHTML = card.back;
-        cardElement.classList.remove('card-front');
-        cardElement.classList.add('card-back');
-    }
+    // *** Update BOTH faces' content ***
+    frontFaceElement.innerHTML = card.front;
+    backFaceElement.innerHTML = card.back;
+    // *** END content update change ***
 
-    // Update counter based on the displayed deck
+    // Remove styling classes from cardElement itself (handled by faces now)
+    // cardElement.classList.remove('card-back', 'card-front'); // No longer needed
+
     cardCounterElement.textContent = `Card ${currentCardIndex + 1} / ${displayedFlashcards.length}`;
 
-    // Enable/disable buttons based on position in the *displayed* deck
     prevBtn.disabled = currentCardIndex === 0;
     nextBtn.disabled = currentCardIndex === displayedFlashcards.length - 1;
-    flipBtn.disabled = false; // Always enable flip if a card is shown
-    toggleOrderBtn.disabled = false; // Enable toggle button
+    flipBtn.disabled = false;
+    toggleOrderBtn.disabled = false;
 }
 
 function flipCard() {
-    if (displayedFlashcards.length === 0) return; // Don't flip if no cards
-    isFront = !isFront; // Toggle the state
-    updateCardDisplay();
+    if (displayedFlashcards.length === 0) return;
+    // *** JUST toggle the .flipped class on the main card ***
+    cardElement.classList.toggle('flipped');
+    // *** END flip logic change ***
+    // isFront = !isFront; // No longer needed here
+    // updateCardDisplay(); // Don't update display on flip, only rotate
 }
 
 function showNextCard() {
     if (currentCardIndex < displayedFlashcards.length - 1) {
         currentCardIndex++;
-        isFront = true; // Always show front of new card first
-        updateCardDisplay();
+        // isFront = true; // Conceptually reset
+        // *** Remove flipped class to show front first ***
+        cardElement.classList.remove('flipped');
+        // *** End change ***
+        updateCardDisplay(); // Update content
     }
 }
 
 function showPrevCard() {
     if (currentCardIndex > 0) {
         currentCardIndex--;
-        isFront = true; // Always show front of new card first
-        updateCardDisplay();
+        // isFront = true; // Conceptually reset
+        // *** Remove flipped class to show front first ***
+        cardElement.classList.remove('flipped');
+         // *** End change ***
+        updateCardDisplay(); // Update content
     }
 }
 
 function toggleOrder() {
-    isRandomized = !isRandomized; // Flip the mode
-    setDisplayedCards(); // Reset the deck based on the new mode
+    isRandomized = !isRandomized;
+    setDisplayedCards();
 
-    // Update the toggle button text
     if (isRandomized) {
         toggleOrderBtn.textContent = 'Switch to Ordered';
     } else {
         toggleOrderBtn.textContent = 'Switch to Random';
     }
-
-    updateCardDisplay(); // Show the first card of the new sequence
+     // *** Remove flipped class when order changes ***
+    cardElement.classList.remove('flipped');
+     // *** End change ***
+    updateCardDisplay();
 }
 
 
@@ -186,9 +185,9 @@ function toggleOrder() {
 flipBtn.addEventListener('click', flipCard);
 nextBtn.addEventListener('click', showNextCard);
 prevBtn.addEventListener('click', showPrevCard);
-cardElement.addEventListener('click', flipCard); // Allow clicking card to flip
-toggleOrderBtn.addEventListener('click', toggleOrder); // Add listener for the new button
+cardElement.addEventListener('click', flipCard); // Card click still flips
+toggleOrderBtn.addEventListener('click', toggleOrder);
 
 // --- Initial Load ---
-setDisplayedCards(); // Set the initial deck (will be ordered by default)
-updateCardDisplay(); // Show the first card
+setDisplayedCards();
+updateCardDisplay(); // Initial content load for both faces
