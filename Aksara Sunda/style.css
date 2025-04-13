@@ -78,6 +78,16 @@ h1 {
     gap: 15px; /* Space between buttons */
 }
 
+@font-face {
+  font-family: 'Noto Sans Sundanese';
+  /* Prioritize WOFF2 */
+  src: url('./fonts/NotoSansSundanese/Regular.woff2') format('woff2'), /* Use the actual name of the converted WOFF2 file */
+       url('./fonts/NotoSansSundanese/Regular.ttf') format('truetype'); /* TTF as fallback */
+  font-weight: normal; /* Or 100 900 */
+  font-style: normal;
+  font-display: swap;
+}
+
 button {
     padding: 10px 15px;
     font-size: 1em;
