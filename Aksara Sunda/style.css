@@ -6,11 +6,22 @@ body {
     justify-content: center;
     min-height: 90vh;
     background-color: #f4f4f4;
+    padding-top: 80px; /* Add padding roughly logo height + desired space */
+    box-sizing: border-box; /* Include padding in height calculation */
 }
 
 h1 {
     color: #333;
     margin-bottom: 20px;
+}
+
+#page-logo {
+    position: fixed; /* Keep it fixed relative to the viewport */
+    top: 15px;       /* Distance from the top */
+    left: 15px;      /* Distance from the left */
+    height: 50px;    /* Set desired height (adjust as needed) */
+    width: auto;     /* Maintain aspect ratio */
+    z-index: 1000;   /* Ensure it stays on top of other elements */
 }
 
 #flashcard-container {
