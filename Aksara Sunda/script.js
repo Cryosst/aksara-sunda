@@ -6,7 +6,7 @@ const originalFlashcards = [
     { front: "ᮅ", back: "<b>Sound:</b> u <br><b>Type:</b> Swara (Vowel)" },
     { front: "ᮆ", back: "<b>Sound:</b> é ('a' in late) <br><b>Type:</b> Swara (Vowel)" },
     { front: "ᮇ", back: "<b>Sound:</b> o ('o' in go) <br><b>Type:</b> Swara (Vowel)" },
-    { front: "ᮈ", back: "<b>Sound:</b> e ('e' in bet / schwa) <br><b>Type:</b> Swara (Vowel)" },
+    { front: "ᮈ", back: "<b>Sound:</b> e ('e' in bet) <br><b>Type:</b> Swara (Vowel)" },
     { front: "ᮉ", back: "<b>Sound:</b> eu ('uh') <br><b>Type:</b> Swara (Vowel)" },
     // Ngalagena (Base Consonants + 'a')
     { front: "ᮊ", back: "<b>Sound:</b> ka <br><b>Type:</b> Ngalagena" },
@@ -40,7 +40,7 @@ const originalFlashcards = [
     { front: "◌ᮥ", back: "<b>Name:</b> Panyuku (Below) <br><b>Function:</b> Changes 'a' to 'u' <br><b>Example:</b> ᮊ → ᮊᮥ (ku)" },
     { front: "◌ᮦ", back: "<b>Name:</b> Panéléng (Left) <br><b>Function:</b> Changes 'a' to 'é' <br><b>Example:</b> ᮊ → ᮦᮊ (ké)" },
     { front: "◌ᮧ", back: "<b>Name:</b> Panolong (Left & Right) <br><b>Function:</b> Changes 'a' to 'o' <br><b>Example:</b> ᮊ → ᮊᮧ (ko)" },
-    { front: "◌ᮨ", back: "<b>Name:</b> Pamepet (Above) <br><b>Function:</b> Changes 'a' to 'e' (schwa) <br><b>Example:</b> ᮊ → ᮊᮨ (ke)" },
+    { front: "◌ᮨ", back: "<b>Name:</b> Pamepet (Above) <br><b>Function:</b> Changes 'a' to 'e' ('bet') <br><b>Example:</b> ᮊ → ᮊᮨ (ke)" },
     { front: "◌ᮩ", back: "<b>Name:</b> Paneuleung (Below) <br><b>Function:</b> Changes 'a' to 'eu' <br><b>Example:</b> ᮊ → ᮊᮩ (keu)" },
     { front: "◌ᮁ", back: "<b>Name:</b> Panglayar (Above) <br><b>Function:</b> Adds final '-r' <br><b>Example:</b> ᮊ → ᮊᮁ (kar)" },
     { front: "◌ᮀ", back: "<b>Name:</b> Panyecek (Above) <br><b>Function:</b> Adds final '-ng' <br><b>Example:</b> ᮊ → ᮊᮀ (kang)" },
