@@ -19,7 +19,7 @@ h1 {
     position: fixed; /* Keep it fixed relative to the viewport */
     top: 15px;       /* Distance from the top */
     left: 15px;      /* Distance from the left */
-    height: 50px;    /* Set desired height (adjust as needed) */
+    height: 75px;    /* Set desired height (adjust as needed) */
     width: auto;     /* Maintain aspect ratio */
     z-index: 1000;   /* Ensure it stays on top of other elements */
 }
