@@ -90,11 +90,39 @@ h1 {
 }
 
 .card-back-face {
-    /* Styles moved from old .card-back */
-    font-size: 1.1em;
-    line-height: 1.4;
+    /* --- Existing styles --- */
+    font-size: 1.1em; /* You might keep this or adjust slightly */
     color: #444;
-    transform: rotateY(180deg); /* Start the back face rotated */
+    transform: rotateY(180deg);
+    line-height: 1.7;       /* Increase spacing between lines */
+    padding: 25px;          /* Increase padding inside the card */
+    text-align: left;       /* Align text to the left for readability */
+    justify-content: flex-start; /* Align content block to the top */
+    align-items: flex-start;    /* Align content block to the left */
+    flex-direction: column;
+    font-size: 1.0em;
+
+    /* --- Keep these essential styles --- */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #fff;
+    font-family: 'Noto Sans Sundanese', sans-serif;
+}
+
+/* Optional: Style the labels (<b> tags) for better distinction */
+.card-back-face b {
+    display: inline-block; /* Treat label like a block for spacing */
+    min-width: 85px;      /* Give labels a consistent width (adjust as needed) */
+    margin-right: 8px;    /* Add space after the label */
+    color: #0056b3;       /* Make labels stand out (e.g., darker blue) */
+    font-weight: 600;     /* Slightly less than default bold if desired */
 }
 /* --- End 3D styles --- */
 
