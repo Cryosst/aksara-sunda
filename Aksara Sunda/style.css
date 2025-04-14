@@ -178,7 +178,7 @@ button:disabled {
     position: fixed;      /* Keep it fixed relative to the viewport */
     bottom: 10px;         /* Distance from the bottom */
     left: 15px;           /* Distance from the left */
-    font-size: 0.8em;     /* Make the text small (adjust as needed) */
+    font-size: 0.85em;     /* Make the text small (adjust as needed) */
     color: #555;          /* Subtle text color (e.g., dark grey) */
     z-index: 1000;        /* Ensure it stays on top if needed */
 }
