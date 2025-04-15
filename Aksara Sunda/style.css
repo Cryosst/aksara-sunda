@@ -1,4 +1,3 @@
-/* Keep body styles */
 body {
     font-family: 'Noto Sans Sundanese', sans-serif;
     display: flex;
@@ -11,13 +10,11 @@ body {
     box-sizing: border-box;
 }
 
-/* Keep H1 styles */
 h1 {
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Keep logo styles */
 #page-logo {
     position: fixed;
     top: 15px;
@@ -27,13 +24,11 @@ h1 {
     z-index: 1000;
 }
 
-/* Keep flashcard container styles */
 #flashcard-container {
     perspective: 1000px;
     margin-bottom: 20px;
 }
 
-/* Modify #card styles - REMOVE alignment/padding/text-align */
 #card {
     width: 300px;
     height: 220px;
@@ -45,21 +40,8 @@ h1 {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     position: relative;
-    /* REMOVE THESE as they belong on the faces now:
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       padding: 20px;
-       text-align: center;
-       font-family: 'Noto Sans Sundanese', sans-serif; (will be on faces)
-    */
 }
 
-/* --- REMOVE or EMPTY these old rules --- */
-/* .card-front { } */
-/* .card-back { } */
-
-/* --- UNCOMMENT and MODIFY/ADD these 3D styles --- */
 #card.flipped { /* Add .flipped class when card is flipped */
     transform: rotateY(180deg);
 }
@@ -124,10 +106,8 @@ h1 {
     color: #0056b3;       /* Make labels stand out (e.g., darker blue) */
     font-weight: 600;     /* Slightly less than default bold if desired */
 }
-/* --- End 3D styles --- */
 
 
-/* Keep Controls/Flip-Control styles */
 #controls, #flip-control {
     margin-top: 15px;
     display: flex;
@@ -135,7 +115,6 @@ h1 {
     gap: 15px;
 }
 
-/* Keep Font-face styles */
 @font-face {
   font-family: 'Noto Sans Sundanese';
   src: url('./fonts/NotoSansSundanese-Regular.woff2') format('woff2'),
@@ -145,7 +124,6 @@ h1 {
   font-display: swap;
 }
 
-/* Keep Button styles */
 button {
     padding: 10px 15px;
     font-size: 1em;
@@ -166,7 +144,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Keep Card Counter styles */
 #card-counter {
     font-size: 0.9em;
     color: #555;
@@ -183,14 +160,12 @@ button:disabled {
     z-index: 1000;        /* Ensure it stays on top if needed */
 }
 
-/* Style the link within the credits */
 #credits a {
     color: inherit;        /* Inherit the color from the #credits rule */
     text-decoration: none; /* Remove the default underline */
     transition: color 0.2s ease; /* Smooth color transition on hover */
 }
 
-/* Style the link on hover */
 #credits a:hover {
     color: #0056b3;        /* Change color on hover (e.g., darker blue) */
     text-decoration: underline; /* Add underline on hover */
