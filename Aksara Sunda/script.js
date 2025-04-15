@@ -45,8 +45,8 @@ const originalFlashcards = [
     { front: "◌ᮁ", back: "<b>Name:</b> Panglayar | Rarangkén <br><b>Function:</b> Adds final '-r' <br><b>Example:</b> ᮊ → ᮊᮁ (kar)" },
     { front: "◌ᮀ", back: "<b>Name:</b> Panyecek | Rarangkén <br><b>Function:</b> Adds final '-ng' <br><b>Example:</b> ᮊ → ᮊᮀ (kang)" },
     { front: "◌ᮂ", back: "<b>Name:</b> Pangwisad | Rarangkén <br><b>Function:</b> Adds final '-h' <br><b>Example:</b> ᮊ → ᮊᮂ (kah)" },
-    { front: "◌ᮡ", back: "<b>Name:</b> Pamingkal | Rarangkén <br><b>Function:</b> Inserts '-y-' cluster <br><b>Example:</b> ᮊ → ᮊᮡ (kya)" },
     { front: "◌ᮢ", back: "<b>Name:</b> Panyakra | Rarangkén <br><b>Function:</b> Inserts '-r-' cluster <br><b>Example:</b> ᮊ → ᮊᮢ (kra)" },
+    { front: "◌ᮡ", back: "<b>Name:</b> Pamingkal | Rarangkén <br><b>Function:</b> Inserts '-y-' cluster <br><b>Example:</b> ᮊ → ᮊᮡ (kya)" },
     { front: "◌ᮣ", back: "<b>Name:</b> Panyiku | Rarangkén <br><b>Function:</b> Inserts '-l-' cluster <br><b>Example:</b> ᮊ → ᮊᮣ (kla)" },
     { front: "◌᮪", back: "<b>Name:</b> Pamaéh | Rarangkén <br><b>Function:</b> Silences vowel 'a' <br><b>Example:</b> ᮊ → ᮊ᮪ (k)" },
     // Angka (Numerals)
