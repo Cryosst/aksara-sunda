@@ -1,3 +1,5 @@
+// LINK TO VERCEL ---> https://vercel.com/cryossts-projects/flashcard-aksara-sunda //
+
 // --- Flashcard Data (Original Order) ---
 const originalFlashcards = [
     // Swara (Vowels)
